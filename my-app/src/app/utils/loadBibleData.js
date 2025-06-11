@@ -6,7 +6,7 @@ export async function loadBibleData(books) {
     const json = await res.json();
 
     const verses = json
-      .filter(item => item.type === 'paragraph text')
+      .filter(item => item.type === 'paragraph text' || item.type === 'line text')
       .map(item => ({
         text: item.value,
         chapter: item.chapterNumber,
