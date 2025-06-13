@@ -76,6 +76,7 @@ const bookNames = [
 let debounceTimer = null; // Place this outside the component
 
 export default function SearchPage() {
+  // State variables
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [fuse, setFuse] = useState(null);
@@ -109,14 +110,15 @@ export default function SearchPage() {
       } else {
         setResults([]);
       }
-      console.log(`Search executed for: ${q}`);
+      console.log(`Search executed for: ( ${q} ) at ${new Date().toLocaleTimeString()}`);
       //console.timeLog("Search Time");
-    }, 300); // 300ms debounce
+    }, 400); // 300ms debounce
   };
 
   return (
     <div style={{ padding: "1rem" }}>
       <h1>Bible Verse Search</h1>
+
       <input
         type="text"
         value={query}
@@ -135,6 +137,7 @@ export default function SearchPage() {
           </li>
         ))}
       </ul>
+      
     </div>
   );
 }
